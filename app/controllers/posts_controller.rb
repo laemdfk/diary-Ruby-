@@ -27,18 +27,23 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    
+
      if @post.update(post_params)
         flash[:notice]="You have updated successfully."
         redirect_to post_path(@post.id)
-       
+
      else
         render "edit"
      end
-     
+
   end
 
   def destroy
+    post = Post.find(params[:id])
+
+    post.destroy
+      flash[:notice]="Post was successfully destroyed."
+      redirect_to posts_path
 
   end
 

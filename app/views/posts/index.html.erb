@@ -2,4 +2,6 @@
 <% @posts.each do |post| %>
  <%= link_to post.title,post_path(post.id) %>
  <%= post.body %>
+ <%#= post.created_at %>    <!--このコードだとUTC表示になる-->
+ <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
 <% end %>
