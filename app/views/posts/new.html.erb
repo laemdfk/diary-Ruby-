@@ -1,2 +1,24 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>新規投稿</h1>
+<p>お疲れ様です。今の気持ちやアイデアを、記録に残しませんか？</p>
+
+ <%= form_with model: @post_new, url: '/posts',method: :post do |f|  %>
+
+     <div class="form-group">
+      <%= f.label :title,"タイトル" %><br>
+      <%= f.text_field :title,class: "w-100" %><br/>
+     </div>
+
+    <div class="form-group">
+       <%= f.label :post_images,"写真" %><br>
+       <%= f.file_field :post_images,accept: "image/*" %><br />
+   </div>
+
+    <div class="form-group">
+      <%= f.label :body,"本文" %><br/>
+      <%= f.text_area :body,rows: '5',class: "w-100" %><br/>
+    </div>
+
+     <%= f.submit '投稿する' %>
+    <% end %>
+    </div>
+  </div>
