@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def new
     @post_new = Post.new
   end
@@ -6,7 +7,8 @@ class PostsController < ApplicationController
   def create
      @post_new = Post.new(post_params)
     # @post_new = Post.new(params[:id])　→→これだとnilが渡る(照合するidがないから？)
-     if @post_new.save
+     if @post_new.user_id = current_user.id
+      @post_new.save
       redirect_to post_path(@post_new.id)
       # @post_new.idとすることで、新規に与えられたidをもとに詳細ページへ飛べる
      end
@@ -14,6 +16,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @user = current_user
   end
 
   def show
