@@ -2,10 +2,9 @@
 <% @posts.each do |post| %>
  <%= link_to post.title,post_path(post.id) %>
  <%= post.body %>
+ <% if post.image.attached? %>
+  <%= image_tag post.image, size: "300x300" %>
+<% end %>
  <%#= post.created_at %>    <!--このコードだとUTC表示になるので、下記に変更-->
  <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
-  <% if post.image.attached? %>
-  < %= image_tag post.image, size: "300x300" %>
-  <% end %>
-
 <% end %>
