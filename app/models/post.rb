@@ -1,3 +1,5 @@
 class Post < ApplicationRecord
-  has_many_attached :image
+ has_one_attached :post_images
+
+  # belongs_to :user
 end

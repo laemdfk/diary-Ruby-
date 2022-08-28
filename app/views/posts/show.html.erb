@@ -1,7 +1,10 @@
 <h1>Posts#show</h1>
 <%= @post.title %>
 <%= @post.body %>
-<%#= @post.image %>
+
+ <% @post.post_images.each do |image| %>
+  <%= image_tag(image, width:135) %>
+ <% end %>
 
 <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
 
