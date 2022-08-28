@@ -1,0 +1,9 @@
+<%= @user.name %>のユーザー情報
+
+<%= @user.name %>
+<%= @user.email %>
+<%= @user.created_at.strftime('%Y/%m/%d %H:%M') %>
+
+<%= link_to "ユーザー情報を編集する",edit_user_path(@user.id) %>
+
+<%= link_to "日記の一覧に戻る",posts_path %>

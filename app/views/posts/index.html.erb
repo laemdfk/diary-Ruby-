@@ -4,4 +4,8 @@
  <%= post.body %>
  <%#= post.created_at %>    <!--このコードだとUTC表示になるので、下記に変更-->
  <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
+  <% if post.image.attached? %>
+  < %= image_tag post.image, size: "300x300" %>
+  <% end %>
+
 <% end %>
