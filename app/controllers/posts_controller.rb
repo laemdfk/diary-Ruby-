@@ -15,7 +15,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    # whereにより、投稿したユーザーのデータのみを出力させる
+    @posts = Post.where(user_id: current_user.id).includes(:user).order("created_at DESC")
     @user = current_user
   end
 
