@@ -7,8 +7,20 @@ class PostsController < ApplicationController
   def create
      @post_new = Post.new(post_params)
     # @post_new = Post.new(params[:id])　→→これだとnilが渡る(照合するidがないから？)
+
+    # 感情分析スコアの作成
+    @post_new.score = Language.get_data(post_params[:body])
+
      if @post_new.user_id = current_user.id
       @post_new.save
+
+      # tags = Vision.get_image_data(@post_new.image)
+      #   tags.each do |tag|
+      #   @post_new.tags.create(name: tag)
+      #   end
+
+
+
       redirect_to post_path(@post_new.id)
       # @post_new.idとすることで、新規に与えられたidをもとに詳細ページへ飛べる
      end
