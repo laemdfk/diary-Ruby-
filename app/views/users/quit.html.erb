@@ -7,5 +7,5 @@
 
      <div class="row py-5 mr-2 form-group justify-content-center">
       <%= link_to "退会する",withdrawal_path, method: :patch,data: { confilm: "この操作は取り消せませんが、よろしいですか？" }, class:"btn btn-danger mr-5 px-4" %>
-      <%= link_to "退会しない",user_path(current_user) %>
+      <%= link_to "退会しない",user_path(current_user),class:"btn btn-success mr-5 px-4" %>
     </div>
