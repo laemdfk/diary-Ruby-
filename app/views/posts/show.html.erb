@@ -1,6 +1,7 @@
 <h1>Posts#show</h1>
 <%= @post.title %>
 <%= @post.body %>
+<span class="sentiment-score">感情スコア<%= @post.score %></span>
 
 <% if @post.image.attached? %>
   <%= image_tag @post.image, size: "300x300" %>
